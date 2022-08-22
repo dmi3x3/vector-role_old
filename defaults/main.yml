@@ -1,0 +1,7 @@
+---
+vector_version: "0.22.2"
+vector_packages:
+  - vector-server
+vector_dir: "/opt/vector"
+clickhouse_table4logs: "logs"
+clickhouse_node_ip: "127.0.0.1"
