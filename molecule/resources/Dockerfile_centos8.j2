@@ -22,5 +22,4 @@ RUN if [ $(command -v apt-get) ]; then export DEBIAN_FRONTEND=noninteractive && 
 RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py > /usr/bin/systemctl \
 && chmod u+x /usr/bin/systemctl && mkdir -p /run/systemd/system
 
-#CMD /bin/systemd
 CMD /usr/bin/systemctl
