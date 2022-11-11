@@ -1,0 +1,35 @@
+---
+- name: Converge
+  hosts: all
+
+  pre_tasks:
+<<<<<<< HEAD
+    - name: Copy systemcrl.py file
+      copy:
+        src: "../resources/systemctl.py"
+        dest: "/bin/systemctl"
+    - name: Package
+      package:
+        name: "python"
+=======
+    - name: Copy systemctl.py file
+      copy:
+        src: "../resources/systemctl2.py"
+        dest: "/bin/systemctl"
+>>>>>>> refs/remotes/origin/main
+    - name: Create directory
+      file:
+        name: "/run/systemd/system/"
+        state: "directory"
+<<<<<<< HEAD
+    - name: Stop dbus
+      service:
+        name: "dbus.service"
+        state: "stopped"
+=======
+>>>>>>> refs/remotes/origin/main
+
+  tasks:
+    - name: "Include vector-role"
+      include_role:
+        name: "vector-role"

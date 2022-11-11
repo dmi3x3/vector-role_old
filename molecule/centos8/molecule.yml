@@ -1,0 +1,39 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: centos8
+    image: docker.io/monolithprojects/systemd-centos8:latest
+<<<<<<< HEAD
+    dockerfile: ../resources/Dockerfile_cent8.j2
+    pre_build_image: false
+    command: /bin/systemd
+=======
+    pre_build_image: true
+    command: /usr/sbin/init
+>>>>>>> refs/remotes/origin/main
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+<<<<<<< HEAD
+      - /sys/fs/cgroup:/sys/fs/cgroup:Z
+#      - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro
+#      - /proc:/proc:ro
+=======
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+>>>>>>> refs/remotes/origin/main
+    env:
+      ANSIBLE_USER: ansible
+      SUDO_GROUP: wheel
+      DEPLOY_GROUP: deployer
+      container: docker
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

@@ -1,0 +1,37 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: centos7
+    image: docker.io/pycontribs/centos:7
+<<<<<<< HEAD
+    dockerfile: ../resources/Dockerfile.j2
+#    pre_build_image: true
+    command: /lib/systemd/systemd
+=======
+    pre_build_image: true
+    command: /usr/sbin/init
+>>>>>>> refs/remotes/origin/main
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+<<<<<<< HEAD
+      - /sys/fs/cgroup:/sys/fs/cgroup:Z
+=======
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+>>>>>>> refs/remotes/origin/main
+    env:
+      ANSIBLE_USER: ansible
+      SUDO_GROUP: wheel
+      DEPLOY_GROUP: deployer
+      container: docker
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
