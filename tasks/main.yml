@@ -17,17 +17,6 @@
     state: present
   become: true
 
-#- name: debug hostvars
-#  debug:
-#    msg: "{{ item }}"
-#  with_items: "{{ hostvars['clickhouse-01'] }}"
-#
-#- name: Set IP address clickhouse
-#  set_fact:
-#    clickhouse_node_ip: "{{ item }}"
-#  with_items:
-#    - "{{ hostvars['clickhouse-01']['ansible_facts']['default_ipv4']['address'] }}"
-
 - name: Create directrory for vector "{{ vector_dir }}"
   ansible.builtin.file:
     path: "{{ item }}"
